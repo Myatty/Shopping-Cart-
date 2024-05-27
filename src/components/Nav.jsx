@@ -1,14 +1,13 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
-import { itemContext } from "../store/ItemContext";
+import { ItemContextTwo } from "../store/ItemContextTwo";
 
 const Nav = (props) => {
-
-  const {items} = useContext(itemContext);
+  const { items } = useContext(ItemContextTwo);
   const totalCartAmount = items.reduce((currentVal, item) => {
     return currentVal + item.amount;
-  }, 0 )
+  }, 0);
 
   return (
     <nav className="nav">

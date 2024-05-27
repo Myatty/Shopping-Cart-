@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
 import Main from "./layout/Main";
-import ItemContextProvider from "./store/ItemContext";
+import ItemContextProvider from "./store/ItemContextTwo";
 
 function App() {
   return (
-    <itemContextProvider>
+    <ItemContextProvider>
       <Main />
-    </itemContextProvider>
+    </ItemContextProvider>
   );
 }
 

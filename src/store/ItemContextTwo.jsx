@@ -2,29 +2,28 @@
 /* eslint-disable no-unused-vars */
 import { createContext, useReducer } from "react";
 
-const addItemHandler = () => {};
-
-const removeItemHandler = () => {};
-
 const initialState = {
   items: [],
   totalAmount: 0,
 };
+
 const itemReducer = (state, action) => {
-  if (action.type == "ADD_ITEM") {
-    
+  if (action.type === "ADD_ITEM") {
+    console.log("add item was called");
+
     const updatedItems = state.items.concat(action.item);
     const updatedTotalAmount = state.totalAmount + action.item.price * action.item.amount;
+    
     return {
       items: updatedItems,
-      totalAmount: updatedTotalAmount
+      totalAmount: updatedTotalAmount,
     };
   }
 
   return initialState;
 };
 
-export const itemContext = createContext({
+export const ItemContextTwo = createContext({
   items: [],
   totalAmount: 0,
   addItem: (item) => {},
@@ -42,7 +41,7 @@ const ItemContextProvider = (props) => {
     dispatchItem({ type: "REMOVE_ITEM", id });
   };
 
-  const itemContext = {
+  const contextValue = {
     items: itemState.items,
     totalAmount: itemState.totalAmount,
     addItem: addItemHandler,
@@ -50,9 +49,9 @@ const ItemContextProvider = (props) => {
   };
 
   return (
-    <itemContext.Provider value={itemContext}>
+    <ItemContextTwo.Provider value={contextValue}>
       {props.children}
-    </itemContext.Provider>
+    </ItemContextTwo.Provider>
   );
 };
 
