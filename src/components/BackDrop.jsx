@@ -6,9 +6,10 @@ const BackDrop = (props) => {
   return (
     <>
       {props.showCart && (
-        <section className="backdrop" onClick={props.hideCartHandler}>
-          <Cart hideCartHandler={props.hideCartHandler}/>
-        </section>
+        <>
+          <section className="backdrop" onClick={props.hideCartHandler} />
+          <Cart hideCartHandler={props.hideCartHandler} />
+        </>
       )}
     </>
   );
