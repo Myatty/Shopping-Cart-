@@ -174,3 +174,8 @@
 button:hover{
   cursor: pointer;
 }
+
+.no-item{
+  text-align: center;
+  font-size: larger;
+}
