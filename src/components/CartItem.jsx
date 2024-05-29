@@ -1,8 +1,17 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from "react";
+import {useContext} from "react";
+import { ItemContextTwo } from "../store/ItemContextTwo";
 
 const CartItem = ({ fruit }) => {
+
+  const {addItem, removeItem} = useContext(ItemContextTwo);
+  const addAmountHandler = () => {
+      addItem({ ...fruit, amount: 1 }) 
+  }
+  const removeAmountHandler = () => {
+    removeItem(fruit.id);
+  }
   return (
     <div className="card cart">
       <div>
@@ -14,8 +23,8 @@ const CartItem = ({ fruit }) => {
           <span>{fruit.amount}</span>
         </p>
         <div className="quantity-ctr">
-          <button className="quantity-btn m-ctr">+</button>
-          <button className="quantity-btn">-</button>
+          <button className="quantity-btn m-ctr" onClick={addAmountHandler}>+</button>
+          <button className="quantity-btn" onClick={removeAmountHandler}>-</button>
         </div>
       </div>
     </div>

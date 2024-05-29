@@ -31,8 +31,10 @@ import { ItemContextTwo } from "../store/ItemContextTwo";
 const Cart = (props) => {
   const { items, totalAmount } = useContext(ItemContextTwo);
 
+  const totalPrice = `${totalAmount.toFixed(2)}`
   return (
     <section className="cart-box">
+      <section className="overflow-ctr">
       {items.length < 1 ? (
         <h1 className="no-item">No item yet!</h1>
       ) : (
@@ -43,11 +45,12 @@ const Cart = (props) => {
           ))}
         </>
       )}
+      </section>
 
       <hr />
       <div className="total">
         <h3>Total price</h3>
-        <p>{totalAmount}</p>
+        <p>{totalPrice}</p>
       </div>
       <div className="btns">
         <button className="close-btn" onClick={props.hideCartHandler}>
@@ -56,7 +59,9 @@ const Cart = (props) => {
         {items.length < 1 ? (
           <></>
         ) : (
-          <button className="order-btn">Order</button>
+          <button className="order-btn" onClick={() => {
+            alert("Your cart was Successfully Ordered!!")
+          }}>Order</button>
         )}
       </div>
     </section>
